@@ -69,7 +69,7 @@ export default function Login() {
     
     if (Object.keys(newErrors).length === 0) {
       setIsLoading(true)
-      axios.post("https://chatgpt-clone-with-stm-ltm-rag-database.onrender.comapi/auth/login",{
+      axios.post("https://chatgpt-clone-with-stm-ltm-rag-database.onrender.com/api/auth/login",{
           email: formData.email,
           password: formData.password
       },{

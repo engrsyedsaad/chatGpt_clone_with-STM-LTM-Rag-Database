@@ -76,7 +76,7 @@ export default function Chat() {
   const fetchChats = async () => {
     try {
       setIsLoading(true)
-      const response = await axios.get('https://chatgpt-clone-with-stm-ltm-rag-database.onrender.comapi/chats', {
+      const response = await axios.get('https://chatgpt-clone-with-stm-ltm-rag-database.onrender.com/api/chats', {
         withCredentials: true,
       })
       if (response.data.chats && response.data.chats.length > 0) {
@@ -95,7 +95,7 @@ export default function Chat() {
   // Fetch messages for a specific chat
   const loadChatMessages = async (chat) => {
     try {
-      const response = await axios.get(`https://chatgpt-clone-with-stm-ltm-rag-database.onrender.comapi/chats/${chat._id}/messages`, {
+      const response = await axios.get(`https://chatgpt-clone-with-stm-ltm-rag-database.onrender.com/api/chats/${chat._id}/messages`, {
         withCredentials: true,
       })
       setMessages(response.data.messages || [])
@@ -118,7 +118,7 @@ export default function Chat() {
   const handleDeleteChat = async (chatId) => {
     if (window.confirm('Are you sure you want to delete this chat?')) {
       try {
-        await axios.delete(`https://chatgpt-clone-with-stm-ltm-rag-database.onrender.comapi/chats/${chatId}`, {
+        await axios.delete(`https://chatgpt-clone-with-stm-ltm-rag-database.onrender.com/api/chats/${chatId}`, {
           withCredentials: true,
         })
         
@@ -148,7 +148,7 @@ export default function Chat() {
 
     try {
       const response = await axios.post(
-        'https://chatgpt-clone-with-stm-ltm-rag-database.onrender.comapi/chats',
+        'https://chatgpt-clone-with-stm-ltm-rag-database.onrender.com/api/chats',
         { chat: newChatName },
         { withCredentials: true }
       )
@@ -188,7 +188,7 @@ export default function Chat() {
 
       // Send message to backend
       const response = await axios.post(
-        `https://chatgpt-clone-with-stm-ltm-rag-database.onrender.comapi/chats/${selectedChat._id}/messages`,
+        `https://chatgpt-clone-with-stm-ltm-rag-database.onrender.com/api/chats/${selectedChat._id}/messages`,
         { content: messageInput, role: 'user' },
         { withCredentials: true }
       )
