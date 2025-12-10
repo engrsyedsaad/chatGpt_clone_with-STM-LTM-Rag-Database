@@ -80,7 +80,7 @@ export default function Register() {
     e.preventDefault()
     const newErrors = validateForm()
     console.log(formData);
-    axios.post("http://localhost:3000/api/auth/register",{
+    axios.post("https://chatgpt-clone-with-stm-ltm-rag-database.onrender.comapi/auth/register",{
         fullName:{
             firstName: formData.firstName,
             lastName: formData.lastName,
